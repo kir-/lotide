@@ -1,3 +1,7 @@
+const tail = function(array1) {
+  return (array1.slice(1));
+};
+
 const assertEqual = function(actual, expected) {
   if (Array.isArray(actual) && Array.isArray(expected) && actual.length === expected.length) {
     let string1 = '';
@@ -18,5 +22,5 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-assertEqual("lighthouse labs", "Bootcamp");
-assertEqual([1,2,3], [1,2,3]);
+assertEqual(tail([5,6,7,8]),[6,7,8]);
+assertEqual(tail([5,"grayson","jump",4]),["grayson","jump",4]);
