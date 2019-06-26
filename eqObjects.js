@@ -8,25 +8,26 @@ const eqArrays = function(actual, expected) {
 };
 
 const eqObjects = function(Variable1, Variable2) {
-  if (Object.keys(Variable1).length === Object.keys(Variable2).length) {
-    for (let x in Variable1) {
-      if (typeof Variable1[x] === "object") {
-        if (Array.isArray(Variable1)) {
-          eqArrays(Variable1[x],Variable2[x]);
-        } else {
-          if (!eqObjects(Variable1[x],Variable2[x])) {
-            return false;
-          }
-        }
-      } else {
-        if (Variable1[x] !== Variable2[x]) {
-          return false;
-        }
+  if (!(Object.keys(Variable1).length === Object.keys(Variable2).length)) {
+    return false;
+  }
+
+  for (let x in Variable1) {
+    if (Array.isArray(Variable1)) {
+      if (!eqArrays(Variable1[x],Variable2[x])) {
+        return false;
+      }
+    } else if (typeof Variable1[x] === "object") {
+      if (!eqObjects(Variable1[x],Variable2[x])) {
+        return false;
+      }
+    } else {
+      if (Variable1[x] !== Variable2[x]) {
+        return false;
       }
     }
-    return true;
   }
-  return false;
+  return true;
 };
 // we are looking for a false
 const ab = { a: "1", b: "2" };
@@ -42,3 +43,7 @@ console.log(eqObjects(cd, dc)); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 console.log(eqObjects(cd, cd2)); // => false
+
+const cd3 = { d: ["2", 3, 4] , c: { a : "1"}};
+const cd4 = { c: { a : "1"} , d: ["2", 3, 4] };
+console.log(eqObjects(cd3, cd4)); // => true
