@@ -16,4 +16,4 @@ const without = (source, itemsToRemove) => {
   return source.filter(function(element) { return itemsToRemove.includes(element) ? false : true; });
 };
 
-// console.log(without([1,2,3],[1,2,4]));
+//console.log(without([1,2,3],[1,2]));
