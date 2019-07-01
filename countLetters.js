@@ -9,4 +9,5 @@ const countLetters = (sentance) => {
   return letterHolder;
 };
 
-console.log(countLetters("hello my name is"));
+//console.log(countLetters("hello my name is"));
+module.exports = countLetters;

@@ -8,3 +8,4 @@ const takeUntil = (array,callBack) => {
   return arraySlice;
 };
 
+module.exports = takeUntil;

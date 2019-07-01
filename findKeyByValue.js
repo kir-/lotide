@@ -6,11 +6,13 @@ const findKeyByValue = (keyList, value) => {
   }
 };
 
-const bestTVShowsByGenre = {
+/*const bestTVShowsByGenre = {
   scifi: "The Expanse",
   comedy: "Brooklyn Nine-Nine",
   drama:  "The Wire"
 };
 
 console.log(findKeyByValue(bestTVShowsByGenre, "The Wire"));
-console.log(findKeyByValue(bestTVShowsByGenre, "That '70s Show"));
+console.log(findKeyByValue(bestTVShowsByGenre, "That '70s Show"));*/
+
+module.exports = findKeyByValue;
